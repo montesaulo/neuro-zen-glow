@@ -18,12 +18,23 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ['Inter', 'system-ui', 'sans-serif'],
+				medical: ['SF Pro Display', 'Inter', 'system-ui', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				neuro: {
+					primary: 'hsl(var(--neuro-primary))',
+					secondary: 'hsl(var(--neuro-secondary))',
+					accent: 'hsl(var(--neuro-accent))',
+					surface: 'hsl(var(--neuro-surface))',
+					'surface-elevated': 'hsl(var(--neuro-surface-elevated))',
+				},
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'

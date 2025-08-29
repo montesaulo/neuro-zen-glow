@@ -8,35 +8,62 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Premium Dark Medical Theme */
+    --background: 222 84% 4.9%;
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 222 84% 6%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 222 84% 6%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 224 76% 48%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217 32% 17%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 217 32% 15%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 250 100% 75%;
+    --accent-foreground: 222 84% 4.9%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 85% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 217 32% 17%;
+    --input: 217 32% 17%;
+    --ring: 224 76% 48%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Premium Medical Colors */
+    --neuro-primary: 224 76% 48%;
+    --neuro-secondary: 250 100% 75%;
+    --neuro-accent: 280 100% 70%;
+    --neuro-surface: 222 84% 6%;
+    --neuro-surface-elevated: 217 32% 12%;
+    
+    /* Glassmorphism */
+    --glass-bg: 217 32% 15% / 0.8;
+    --glass-border: 210 40% 98% / 0.1;
+    --glass-shadow: 222 84% 4.9% / 0.3;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(224 76% 48%) 0%, hsl(250 100% 75%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(280 100% 70%) 0%, hsl(224 76% 48%) 100%);
+    --gradient-surface: linear-gradient(135deg, hsl(222 84% 6%) 0%, hsl(217 32% 12%) 100%);
+    
+    /* Effects */
+    --shadow-soft: 0 8px 32px hsl(var(--glass-shadow));
+    --shadow-elevation: 0 16px 64px hsl(var(--glass-shadow));
+    --blur-glass: blur(16px);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +127,88 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
   }
+}
+
+@layer components {
+  /* Glassmorphism Effects */
+  .glass {
+    background: hsl(var(--glass-bg));
+    backdrop-filter: var(--blur-glass);
+    -webkit-backdrop-filter: var(--blur-glass);
+    border: 1px solid hsl(var(--glass-border));
+  }
+  
+  .glass-card {
+    @apply glass rounded-xl shadow-[var(--shadow-soft)] transition-[var(--transition-smooth)];
+  }
+  
+  .glass-hero {
+    @apply glass rounded-2xl shadow-[var(--shadow-elevation)] transition-[var(--transition-spring)];
+  }
+  
+  /* Floating Cards */
+  .float-card {
+    @apply bg-card border border-border rounded-xl shadow-[var(--shadow-soft)] 
+           transition-[var(--transition-smooth)] hover:shadow-[var(--shadow-elevation)] 
+           hover:scale-105 hover:-translate-y-1;
+  }
+  
+  /* Gradient Backgrounds */
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+  
+  .gradient-surface {
+    background: var(--gradient-surface);
+  }
+  
+  /* Medical Typography */
+  .heading-hero {
+    @apply text-5xl md:text-7xl font-bold tracking-tight bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent;
+  }
+  
+  .heading-section {
+    @apply text-3xl md:text-4xl font-semibold tracking-tight;
+  }
+  
+  .text-medical {
+    @apply text-lg leading-relaxed text-muted-foreground;
+  }
+  
+  /* Interactive Elements */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground px-8 py-4 rounded-xl font-semibold
+           transition-[var(--transition-spring)] hover:scale-105 hover:shadow-[var(--shadow-soft)]
+           active:scale-95;
+  }
+  
+  .btn-secondary {
+    @apply glass-card text-foreground px-8 py-4 font-semibold
+           hover:bg-secondary/20 active:scale-95;
+  }
+  
+  /* Micro-interactions */
+  .pulse-gentle {
+    animation: pulse-gentle 3s ease-in-out infinite;
+  }
+  
+  .glow {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+  }
+}
+
+@keyframes pulse-gentle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
 }
