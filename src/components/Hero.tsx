@@ -28,29 +28,29 @@ const Hero = () => {
             Trusted by 500+ Healthcare Professionals
           </div>
           
-          {/* Main Heading with Animated Words */}
+          {/* Main Heading */}
           <h1 className="heading-hero mb-8">
-            Advanced <span className="animated-word">Neurological</span>
+            Precision Brain
             <br />
-            <span className="gradient-primary bg-clip-text text-transparent">Assessment Platform</span>
+            <span className="gradient-primary bg-clip-text text-transparent">Assessment</span>
           </h1>
           
           {/* Subtitle */}
           <p className="text-medical max-w-3xl mx-auto mb-12 text-xl md:text-2xl">
-            Revolucione avaliações neuropsicológicas com análises baseadas em IA,
-            análises em tempo real e insights baseados em evidências para melhores
-            resultados dos pacientes.
+            Revolutionizing neuropsychological evaluation with AI-powered assessments,
+            comprehensive cognitive profiling, and evidence-based therapeutic insights for
+            healthcare professionals worldwide.
           </p>
           
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-            <a href="/assessment" className="btn-primary group">
-              Iniciar Teste Gratuito
+            <button className="btn-primary group">
+              Start Assessment
               <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a href="/chat" className="btn-secondary">
-              Assistir Demonstração
-            </a>
+            </button>
+            <button className="btn-secondary">
+              View Demo
+            </button>
           </div>
           
           {/* Features Grid */}
