@@ -13,22 +13,22 @@ const Navigation = () => {
             <div className="w-10 h-10 gradient-primary rounded-xl flex items-center justify-center">
               <Brain className="w-6 h-6 text-white" />
             </div>
-            <span className="text-xl font-bold">NeuroZen</span>
+            <span className="text-xl font-bold">NeuroMente</span>
           </div>
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            <a href="#platform" className="text-muted-foreground hover:text-foreground transition-colors">
-              Platform
+            <a href="/" className="text-muted-foreground hover:text-foreground transition-colors">
+              Início
             </a>
-            <a href="#assessments" className="text-muted-foreground hover:text-foreground transition-colors">
-              Assessments
+            <a href="/assessment" className="text-muted-foreground hover:text-foreground transition-colors">
+              Avaliação
             </a>
-            <a href="#research" className="text-muted-foreground hover:text-foreground transition-colors">
-              Research
+            <a href="/chat" className="text-muted-foreground hover:text-foreground transition-colors">
+              Conversa IA
             </a>
-            <a href="#support" className="text-muted-foreground hover:text-foreground transition-colors">
-              Support
+            <a href="/dashboard" className="text-muted-foreground hover:text-foreground transition-colors">
+              Dashboard
             </a>
           </div>
           
@@ -37,9 +37,9 @@ const Navigation = () => {
             <button className="text-muted-foreground hover:text-foreground transition-colors">
               Sign In
             </button>
-            <button className="bg-primary text-primary-foreground px-4 py-2 rounded-lg font-medium hover:scale-105 transition-transform">
-              Get Started
-            </button>
+            <a href="/assessment" className="bg-primary text-primary-foreground px-4 py-2 rounded-lg font-medium hover:scale-105 transition-transform">
+              Iniciar Avaliação
+            </a>
           </div>
           
           {/* Mobile Menu Button */}
@@ -55,25 +55,25 @@ const Navigation = () => {
         {isMenuOpen && (
           <div className="md:hidden border-t border-border/50 py-4">
             <div className="flex flex-col gap-4">
-              <a href="#platform" className="text-muted-foreground hover:text-foreground transition-colors">
-                Platform
+              <a href="/" className="text-muted-foreground hover:text-foreground transition-colors">
+                Início
               </a>
-              <a href="#assessments" className="text-muted-foreground hover:text-foreground transition-colors">
-                Assessments
+              <a href="/assessment" className="text-muted-foreground hover:text-foreground transition-colors">
+                Avaliação
               </a>
-              <a href="#research" className="text-muted-foreground hover:text-foreground transition-colors">
-                Research
+              <a href="/chat" className="text-muted-foreground hover:text-foreground transition-colors">
+                Conversa IA
               </a>
-              <a href="#support" className="text-muted-foreground hover:text-foreground transition-colors">
-                Support
+              <a href="/dashboard" className="text-muted-foreground hover:text-foreground transition-colors">
+                Dashboard
               </a>
               <div className="flex flex-col gap-2 pt-4 border-t border-border/50">
                 <button className="text-muted-foreground hover:text-foreground transition-colors text-left">
-                  Sign In
+                  Entrar
                 </button>
-                <button className="bg-primary text-primary-foreground px-4 py-2 rounded-lg font-medium">
-                  Get Started
-                </button>
+                <a href="/assessment" className="bg-primary text-primary-foreground px-4 py-2 rounded-lg font-medium text-center">
+                  Iniciar Avaliação
+                </a>
               </div>
             </div>
           </div>
